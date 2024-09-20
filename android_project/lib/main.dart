@@ -1,6 +1,8 @@
-import 'package:android_project/auth/pages/login_page.dart';
+import 'package:android_project/features/auth/pages/login_page.dart';
+import 'package:android_project/features/auth/pages/username_page.dart';
 import 'package:android_project/firebase_options.dart';
 import 'package:android_project/views/home/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +29,29 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const LoginPage();
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           }
-          return HomePage();
+          return StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection("users")
+                .doc(FirebaseAuth.instance.currentUser!.uid)
+                .snapshots(),
+            builder: (context, snapshot) {
+              final user = FirebaseAuth.instance.currentUser;
+              if (!snapshot.hasData || !snapshot.data!.exists) {
+                return UsernamePage(
+                    user!.displayName!, user.photoURL!, user.email!);
+              } else if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return HomePage();
+            },
+          );
         },
       ),
     );
