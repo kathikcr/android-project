@@ -66,8 +66,8 @@ class _UsernamePageState extends ConsumerState<UsernamePage> {
                   key: formKey,
                   decoration: InputDecoration(
                     suffixIcon: isValidate
-                        ? Icon(Icons.verified_user_rounded)
-                        : Icon(Icons.cancel),
+                        ? const Icon(Icons.verified_user_rounded)
+                        : const Icon(Icons.cancel),
                     suffixIconColor: isValidate ? Colors.green : Colors.red,
                     hintText: "Insert Username ",
                     border: const OutlineInputBorder(
@@ -97,8 +97,8 @@ class _UsernamePageState extends ConsumerState<UsernamePage> {
                   //add users data inside database
                   isValidate
                       ? await ref
-                          .read(UserDataServiceProvider)
-                          .addUserDataToFireStore(
+                          .read(userDataServiceProvider)
+                          .addUserDataToFirestore(
                               displayName: widget.displayName,
                               username: usernameController.text,
                               email: widget.email,

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           if (!snapshot.hasData) {
             return const LoginPage();
           } else if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -45,11 +45,11 @@ class MyApp extends StatelessWidget {
                 return UsernamePage(
                     user!.displayName!, user.photoURL!, user.email!);
               } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
-              return HomePage();
+              return const HomePage();
             },
           );
         },

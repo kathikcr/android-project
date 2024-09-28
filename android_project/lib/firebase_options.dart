@@ -59,4 +59,5 @@ class DefaultFirebaseOptions {
     projectId: 'my-android-edutech-project',
     storageBucket: 'my-android-edutech-project.appspot.com',
   );
+
 }
