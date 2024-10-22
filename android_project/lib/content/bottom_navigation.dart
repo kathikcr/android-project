@@ -53,8 +53,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
         ),
         tabs: const [
           GButton(icon: Icons.home, text: "Home"),
-          GButton(icon: Icons.videocam, text: "Shorts"),
           GButton(icon: Icons.cloud_upload),
+          // GButton(icon: Icons.videocam, text: "Shorts"),
           GButton(icon: Icons.search, text: "Search"),
           GButton(icon: Icons.heart_broken, text: "Log out"),
         ],

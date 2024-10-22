@@ -4,6 +4,7 @@ import 'package:android_project/content/bottom_navigation.dart';
 import 'package:android_project/cores/screens/error_page.dart';
 import 'package:android_project/cores/screens/loader.dart';
 import 'package:android_project/cores/widgets/image_button.dart';
+import 'package:android_project/features/account/account_page.dart';
 import 'package:android_project/features/auth/provider/user_provider.dart';
 import 'package:android_project/features/upload/upload_bottom_sheet.dart';
 import 'package:android_project/pages_list.dart';
@@ -30,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             Row(
               children: [
                 Image.asset(
-                  "assets/images/youtube.jpg",
+                  "assets/images/logo.png",
                   height: 36,
                 ),
                 const SizedBox(width: 4),
@@ -59,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                     height: 41.5,
                     child: ImageButton(
-                      image: "search.png",
+                      image: 'search.png',
                       onPressed: () {},
                       haveColor: false,
                     ),
@@ -70,11 +71,23 @@ class _HomePageState extends State<HomePage> {
                     return ref.watch(currentUserProvider).when(
                           data: (currentUser) => Padding(
                             padding: const EdgeInsets.only(right: 12.0),
-                            child: CircleAvatar(
-                              radius: 14,
-                              backgroundColor: Colors.grey,
-                              backgroundImage: CachedNetworkImageProvider(
-                                  currentUser.profilePic),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => AccountPage(
+                                      user: currentUser,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: CircleAvatar(
+                                radius: 14,
+                                backgroundColor: Colors.grey,
+                                backgroundImage: CachedNetworkImageProvider(
+                                    currentUser.profilePic),
+                              ),
                             ),
                           ),
                           error: (error, StackTrace) => const ErrorPage(),
@@ -92,7 +105,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: BottomNavigation(
         onpressed: (index) {
-          if (index != 2) {
+          if (index != 1) {
             currentIndex = index;
             setState(() {});
           } else {

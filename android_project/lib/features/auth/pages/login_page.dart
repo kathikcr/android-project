@@ -16,7 +16,7 @@ class LoginPage extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20, bottom: 25),
               child: Image.asset(
-                "assets/logo.png",
+                "assets/images/logo.png",
                 height: 150,
               ),
             ),
@@ -30,12 +30,16 @@ class LoginPage extends ConsumerWidget {
             ),
             const Spacer(),
             Padding(
-              padding: const EdgeInsets.only(left: 4),
+              padding: const EdgeInsets.only(
+                left: 4,
+                bottom: 10,
+              ),
               child: GestureDetector(
                   onTap: () async {
                     await ref.read(authServiceProvider).signInWithGoogle();
                   },
-                  child: Image.asset('assets/logo.png', height: 60)),
+                  child: Image.asset('assets/images/signinwithgoogle.png',
+                      height: 50)),
             ),
           ],
         ),

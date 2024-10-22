@@ -23,7 +23,7 @@ class _ChannelSettingsState extends ConsumerState<ChannelSettings> {
           data: (currentUser) => Scaffold(
             body: SafeArea(
               child: Padding(
-                padding: const EdgeInsets.only(top: 0),
+                padding: const EdgeInsets.only(top: 10),
                 child: Column(
                   children: [
                     Stack(
@@ -32,7 +32,7 @@ class _ChannelSettingsState extends ConsumerState<ChannelSettings> {
                           height: 170,
                           width: double.infinity,
                           child: Image.asset(
-                            "assets/flutter background.png",
+                            "assets/images/flutter background.png",
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -50,7 +50,7 @@ class _ChannelSettingsState extends ConsumerState<ChannelSettings> {
                           right: 16,
                           top: 10,
                           child: Image.asset(
-                            "asset/icon/camera.png",
+                            "assets/icons/camera.png",
                             height: 34,
                             color: Colors.white,
                           ),

@@ -1,3 +1,4 @@
+import 'package:android_project/features/channel/my_channel/pages/home_channel_page.dart';
 import 'package:flutter/material.dart';
 
 class TabBarViewPage extends StatelessWidget {
@@ -8,9 +9,7 @@ class TabBarViewPage extends StatelessWidget {
     return const Expanded(
       child: TabBarView(
         children: [
-          Center(
-            child: Text("Home"),
-          ),
+          HomeChannelPage(),
           Center(
             child: Text("Videos"),
           ),

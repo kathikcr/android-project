@@ -2,6 +2,8 @@
 
 import 'dart:io';
 
+import 'package:android_project/features/upload/long_video/video_deatils_page.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -12,10 +14,34 @@ void showErrorSnackBar(String message, context) =>
         duration: const Duration(seconds: 1),
       ),
     );
-pickVideo() async {
+Future pickVideo(context) async {
   XFile? file = await ImagePicker().pickVideo(source: ImageSource.gallery);
   File video = File(file!.path);
-  if (video != null) {
-    return video;
-  }
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return VideoDeatilsPage(video);
+  }));
+  return video;
+}
+
+Future pickShortVideo(context) async {
+  XFile? file = await ImagePicker().pickVideo(source: ImageSource.gallery);
+  File video = File(file!.path);
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+    return VideoDeatilsPage(video);
+  }));
+  return video;
+}
+
+Future<File> pickImage() async {
+  XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
+  File image = File(file!.path);
+  return image;
+}
+
+Future<String> putFileInStorage(file, number, fileType) async {
+  final ref = FirebaseStorage.instance.ref().child("$fileType/$number");
+  final upload = ref.putFile(file);
+  final snapshot = await upload;
+  String downloadUrl = await snapshot.ref.getDownloadURL();
+  return downloadUrl;
 }
