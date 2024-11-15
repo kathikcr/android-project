@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:android_project/features/upload/long_video/video_deatils_page.dart';
+import 'package:android_project/features/upload/notes_upload/notes_details_page.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -23,13 +24,13 @@ Future pickVideo(context) async {
   return video;
 }
 
-Future pickShortVideo(context) async {
-  XFile? file = await ImagePicker().pickVideo(source: ImageSource.gallery);
-  File video = File(file!.path);
+Future pickNotesImage(context) async {
+  XFile? file = await ImagePicker().pickImage(source: ImageSource.gallery);
+  File notes = File(file!.path);
   Navigator.push(context, MaterialPageRoute(builder: (context) {
-    return VideoDeatilsPage(video);
+    return NotesDetailsPage(notes);
   }));
-  return video;
+  return notes;
 }
 
 Future<File> pickImage() async {

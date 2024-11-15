@@ -15,7 +15,7 @@ class MyChannelScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return ref.watch(currentUserProvider).when(
           data: (currentUser) => DefaultTabController(
-            length: 7,
+            length: 3,
             child: Scaffold(
               body: SafeArea(
                 child: Padding(

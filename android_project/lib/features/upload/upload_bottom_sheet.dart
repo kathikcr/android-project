@@ -32,9 +32,11 @@ class CreateBottomSheet extends StatelessWidget {
               SizedBox(
                 height: 38,
                 child: ImageItem(
-                  itemText: "Create a Short",
-                  itemClicked: () async {},
-                  imageName: "short-video.png",
+                  itemText: "Upload Notes",
+                  itemClicked: () async {
+                    pickNotesImage(context);
+                  },
+                  imageName: "upload.png",
                   haveColor: true,
                 ),
               ),
@@ -46,7 +48,7 @@ class CreateBottomSheet extends StatelessWidget {
                   itemClicked: () async {
                     pickVideo(context);
                   },
-                  imageName: "upload.png",
+                  imageName: "short-video.png",
                   haveColor: true,
                 ),
               ),

@@ -1,39 +1,36 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:android_project/content/Long_video/parts/video.dart';
+import 'package:android_project/content/Long_video/parts/imageDisplay.dart';
 import 'package:android_project/features/auth/model/user_model.dart';
 import 'package:android_project/features/auth/provider/user_provider.dart';
-import 'package:android_project/features/upload/long_video/video_model.dart';
+import 'package:android_project/features/upload/notes_upload/notes_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Post extends ConsumerWidget {
-  final VideoModel video;
+class Imagepost extends ConsumerWidget {
+  final NotesModel notes;
 
-  const Post({
-    super.key,
-    required this.video,
+  const Imagepost({
+    required this.notes,
   });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<UserModel> userModel =
-        ref.watch(anyUserDataProvider(video.userId));
+        ref.watch(anyUserDataProvider(notes.userId));
     final user = userModel.whenData((user) => user);
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Video(
-              video: video,
-            ),
+            builder: (context) => ImageDisplay(imageNote: notes),
           ),
         );
         FirebaseFirestore.instance
-            .collection("videos")
-            .doc(video.videoId)
+            .collection("notes")
+            .doc(notes.noteId)
             .update({
           "views": FieldValue.increment(1),
         });
@@ -42,7 +39,7 @@ class Post extends ConsumerWidget {
         padding: const EdgeInsets.only(bottom: 8.0),
         child: Column(
           children: [
-            CachedNetworkImage(imageUrl: video.thumbnail),
+            CachedNetworkImage(imageUrl: notes.thumbnail),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -58,7 +55,7 @@ class Post extends ConsumerWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: Text(
-                    video.title,
+                    notes.title,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -83,7 +80,7 @@ class Post extends ConsumerWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
-                      video.views == 0 ? "No View" : "${video.views} ",
+                      notes.views == 0 ? "No View" : "${notes.views} ",
                       style: const TextStyle(
                         color: Colors.blueGrey,
                       ),
