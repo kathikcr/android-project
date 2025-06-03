@@ -61,4 +61,10 @@ lib/
     └── video_model.dart
 
 
-![image](https://github.com/user-attachments/assets/b14333c8-1c10-4007-9f49-c8bf4d9fce67)
+## ✅ Advantages
+🧠 Centralized content hub (videos, PDFs, notes)
+🔒 Secure backend with Firebase Auth and Firestore
+🧑‍🤝‍🧑 Promotes collaborative learning via comments
+📱 Mobile-first responsive UI
+📤 Easy upload and access to resources
+🔄 Personalized content feed
