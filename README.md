@@ -2,6 +2,7 @@
 
 EdTechTube is a Flutter-based Android application developed to simplify the educational experience by centralizing learning resources like videos, notes, and PDFs into a single mobile platform. Built with Firebase for its backend, EdTechTube ensures secure authentication, cloud-based storage, and scalability, making it a reliable tool for students.
 
+
 ## Features
 
 - Secure login and signup using Firebase Authentication.
@@ -13,13 +14,14 @@ EdTechTube is a Flutter-based Android application developed to simplify the educ
 - Clean, modern user interface with smooth navigation.
 - Cross-platform compatibility and cloud-based infrastructure.
 
+
 ## ✅ Advantages
-- 🧠 Centralized content hub (videos, PDFs, notes)
-- 🔒 Secure backend with Firebase Auth and Firestore
-- 🧑‍🤝‍🧑 Promotes collaborative learning via comments
-- 📱 Mobile-first responsive UI
-- 📤 Easy upload and access to resources
-- 🔄 Personalized content feed
+🧠 Centralized content hub (videos, PDFs, notes)
+🔒 Secure backend with Firebase Auth and Firestore
+🧑‍🤝‍🧑 Promotes collaborative learning via comments
+📱 Mobile-first responsive UI
+📤 Easy upload and access to resources
+🔄 Personalized content feed
 
 
 ## Tech Stack
