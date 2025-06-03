@@ -1,85 +1,50 @@
 # 📱 EdTechTube - Student Learning Platform
 
-EdTechTube is a Flutter-based Android application that serves as a centralized educational hub for students. The app integrates various academic resources—videos, PDFs, notes—and combines them with interactive and personalized learning features. Built with Firebase backend services, EdTechTube offers a secure, scalable, and user-friendly platform for students to access and share study materials.
+EdTechTube is a Flutter-based Android application developed to simplify the educational experience by centralizing learning resources like videos, notes, and PDFs into a single mobile platform. Built with Firebase for its backend, EdTechTube ensures secure authentication, cloud-based storage, and scalability, making it a reliable tool for students.
 
----
+## Features
 
-## 📂 Table of Contents
+- Secure login and signup using Firebase Authentication.
+- Upload and view educational videos.
+- Upload and download study materials in PDF format.
+- Create and manage personal educational channels.
+- Comment on videos and engage in peer-to-peer discussions.
+- Personalized video recommendations based on user preferences.
+- Clean, modern user interface with smooth navigation.
+- Cross-platform compatibility and cloud-based infrastructure.
 
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Project Structure](#project-structure)
-- [Advantages](#advantages)
-- [Limitations](#limitations)
-- [Contributors](#contributors)
-- [License](#license)
+## Tech Stack
 
----
-
-## 🚀 Features
-
-- 🔐 **Secure Authentication** – Firebase Authentication for sign-in and registration.
-- 🏠 **Personalized Home** – View recommended videos tailored to user preferences.
-- 📁 **Content Upload** – Upload videos, PDFs, and notes.
-- 📺 **Video Channel Management** – Create and manage your own educational video channel.
-- 💬 **Collaborative Learning** – Comment on videos and engage in academic discussions.
-- 📥 **Downloadable PDFs** – Access and download essential study materials.
-- 🔎 **Resource Discovery** – Search and explore educational content from other users.
-- 🌐 **Cross-Platform Ready** – Designed for deployment across mobile platforms.
-
----
-
-## 🛠 Tech Stack
-
-| Layer              | Technology       |
-|-------------------|------------------|
-| Frontend          | Flutter (Dart)   |
-| Backend (BaaS)    | Firebase         |
-| Authentication    | Firebase Auth    |
-| Database          | Firebase Firestore |
-| Storage           | Firebase Storage |
-| State Management  | Provider / setState (based on your code) |
+- **Frontend:** Flutter (Dart)
+- **Backend:** Firebase
+- **Authentication:** Firebase Auth (Email/Password)
+- **Database:** Firebase Firestore
+- **Storage:** Firebase Storage
+- **State Management:** Provider / setState
 
 User
-└──> Authentication (Firebase Auth)
+└──> Firebase Authentication
 └──> Home Page
 ├──> View Channels
 ├──> Upload Video/PDF/Notes
 ├──> My Channel
 └──> Comment & Collaborate
-Backend: Firebase Firestore & Storage
+Backend: Firebase Firestore & Firebase Storage
 
-yaml
-Copy
-Edit
 
----
+## Installation
 
-## 🧰 Installation
-
-> Ensure you have Flutter SDK and Firebase CLI set up.
+Make sure Flutter SDK and Firebase CLI are installed on your machine.
 
 ```bash
 git clone https://github.com/kathikcr/android-project.git
 cd android-project
-
 flutter pub get
-
-# To run on emulator or connected device
 flutter run
-🔑 Firebase Setup
-Create a Firebase project at console.firebase.google.com
 
-Enable Authentication, Firestore, and Storage
 
-Add google-services.json to the /android/app directory
+## Project Structure
 
-Configure Firebase in your Flutter app using firebase_core and firebase_auth packages.
-
-🗂 Project Structure
 lib/
 ├── main.dart
 ├── screens/
@@ -94,3 +59,6 @@ lib/
 │   └── storage_service.dart
 └── models/
     └── video_model.dart
+
+
+![image](https://github.com/user-attachments/assets/b14333c8-1c10-4007-9f49-c8bf4d9fce67)
